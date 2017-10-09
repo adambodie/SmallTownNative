@@ -43,15 +43,18 @@ export default class App extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#E6E6FA',
   },
   title: {
     fontSize: 30,
     textAlign: 'center',
-    margin: 10,
-    color: 'black'
+    fontFamily: 'anton-regular',
+    padding: 20,
+    margin: 0,
+    color: 'black',
+    borderBottomColor: 'white',
+    borderBottomWidth: 10,
+    backgroundColor: 'navy'
   },
   paragraph: {
     textAlign: 'center',
