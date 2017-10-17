@@ -140,19 +140,25 @@ export default class App extends Component<{}> {
                 description: 'Love waterparks? Then Wisconsin Dells is the place to be. Unofficially the "Waterpark capital of the World," Wisconsin Dells and neighboring Lake Delton host a number of water parks, including Mt. Olympus Water and Theme Park and Kalahari Resort. But there are plenty of opportunities for those who don\'t love water, such as Top Secret, a museum that is a model of the White House upside-down, and for scenic lovers, there\'s "The Dells of the Wisconsin River," which contains beautiful bluffs.'}
             ]}
             renderItem={({item}) => <View>
-            <Text style={styles.secondaryTitle}>{item.city}, {item.state}</Text>
               <View style={{flex: 1, alignItems: 'center'}}>
                     <Image style={{width: 300, height: 225}} source={item.image} />
               </View>
-              <Text style={styles.paragraph}>
-                Famous for: {item.fame}
-              </Text>
-              <Text style={styles.paragraph}>
-                Population: {item.population}
-              </Text>
-              <Text style={styles.paragraph}>
-                {item.miles}{item.direction} of {item.near}
-              </Text>
+              <Text style={styles.secondaryTitle}>{item.city}</Text>
+              <Text style={styles.secondaryParagraph}> {item.state} </Text>
+              <View style={styles.info}>
+                  <Text style={styles.infoParagraph}>
+                    Famous for: {item.fame}
+                  </Text>
+                  <Text style={styles.infoParagraph}>
+                    Population: {item.population}
+                  </Text>
+                  <Text style={styles.infoParagraph}>
+                    {item.miles}{item.direction} of {item.near}
+                  </Text>
+              </View>
+            <Text style={styles.paragraph}>
+                Why should I visit {item.city}?
+             </Text>
             <Text style={styles.paragraph}>
                 {item.description}
              </Text>
@@ -169,27 +175,46 @@ const styles = StyleSheet.create({
     backgroundColor: '#E6E6FA',
   },
   title: {
-    fontSize: 30,
+    fontSize: 32,
     textAlign: 'center',
     fontFamily: 'anton-regular',
     padding: 20,
     margin: 0,
-    color: 'black',
+    color: '#000',
     borderBottomColor: 'white',
     borderBottomWidth: 10,
     backgroundColor: 'navy'
   },
-    secondaryTitle: {
-      fontSize: 24,
-      textAlign: 'center',
-      padding: 20,
+  secondaryTitle: {
+      fontSize: 28,
+      textAlign: 'left',
       margin: 0,
-      color: 'black',
-    },
+      color: '#000',
+      fontWeight: 'bold',
+      marginLeft: 50
+  },
   paragraph: {
     textAlign: 'center',
     color: '#000000',
     marginBottom: 5,
-    fontSize: 16
+    fontSize: 16,
+    padding: 10
   },
+  secondaryParagraph: {
+      color: 'gray',
+      fontSize: 14,
+      marginLeft: 80
+    },
+  info: {
+    padding: 5,
+    backgroundColor: 'navy',
+    margin: 5,
+    marginLeft: 50
+  },
+  infoParagraph: {
+      textAlign: 'left',
+      color: '#FFFFFF',
+      marginBottom: 5,
+      fontSize: 16
+    }
 });
