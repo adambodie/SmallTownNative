@@ -17,16 +17,17 @@ export default class Place extends Component<{}> {
  constructor(props){
         super(props);
         this.state = {
-
+            zip: []
         }
     }
 
     componentDidMount() {
-        axios.get("http://api.apixu.com/v1/current.json?key=f6e5300584f147f5abb172139162905&q=56308")
+        let zip = this.props.zip;
+        axios.get("http://api.apixu.com/v1/current.json?key=f6e5300584f147f5abb172139162905&q=" + zip)
           .then(response => {
             console.log(response.data.current);
             this.setState({
-                temperature: response.data.current
+                zip: response.data.current
             })
           })
           .catch(function (error) {
@@ -35,7 +36,6 @@ export default class Place extends Component<{}> {
 }
 
     render(){
-    //    const current = this.state.temperature.temp_f;
         return(
             <View>
               <View style={{flex: 1, alignItems: 'center'}}>
@@ -43,6 +43,7 @@ export default class Place extends Component<{}> {
               </View>
               <Text style={styles.secondaryTitle}>{this.props.city}</Text>
               <Text style={styles.secondaryParagraph}> {this.props.state} </Text>
+              <Text style={styles.secondaryParagraph}>Current Temp: {this.state.zip.temp_f} F </Text>
               <View style={styles.info}>
                   <Text style={styles.infoParagraph}>
                     Famous for: {this.props.fame}
