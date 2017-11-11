@@ -37,76 +37,71 @@ export default class Place extends Component<{}> {
 
     render(){
         return(
-            <View>
+            <View style={{borderBottomWidth: 3, marginBottom: 10}}>
               <View style={{flex: 1, alignItems: 'center'}}>
                     <Image style={{width: 300, height: 225}} source={this.props.image} />
               </View>
-              <Text style={styles.secondaryTitle}>{this.props.city}</Text>
-              <Text style={styles.secondaryParagraph}> {this.props.state} </Text>
-              <Text style={styles.secondaryParagraph}>Current Temp: {this.state.zip.temp_f} F </Text>
-              <View style={styles.info}>
-                  <Text style={styles.infoParagraph}>
-                    Famous for: {this.props.fame}
-                  </Text>
-                  <Text style={styles.infoParagraph}>
-                    Population: {this.props.population}
-                  </Text>
-                  <Text style={styles.infoParagraph}>
-                    {this.props.miles}{this.props.direction} of {this.props.near}
-                  </Text>
+              <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between'}}>
+              <View style={{padding: 10}}>
+                    <Text style={styles.title}>{this.props.city}</Text>
+                    <Text style={styles.secondaryParagraph}> {this.props.state} </Text>
               </View>
-            <Text style={styles.paragraph}>
+              <View style={[styles.info, styles.tempInfo]}>
+                    <Text style={styles.temp}>Current Temp:</Text>
+                    <Text style={styles.temp}>{this.state.zip.temp_f} &deg; F </Text>
+              </View>
+              </View>
+            <Text style={styles.title}>
                 Why should I visit {this.props.city}?
              </Text>
             <Text style={styles.paragraph}>
                 {this.props.description}
-             </Text>
+            </Text>
+            <View>
+                <Text style={styles.title}>
+                    Facts about {this.props.city}
+                </Text>
+                <Text style={styles.paragraph}>
+                    Famous for: {this.props.fame}
+                </Text>
+                <Text style={styles.paragraph}>
+                    Population: {this.props.population}
+                </Text>
+                <Text style={styles.paragraph}>
+                    {this.props.miles}{this.props.direction} of {this.props.near}
+                </Text>
             </View>
+        </View>
         )
 
     }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#E6E6FA',
-  },
   title: {
-    fontSize: 32,
-    textAlign: 'center',
-    fontFamily: 'anton-regular',
-    padding: 20,
-    margin: 0,
-    color: '#000',
-    borderBottomColor: 'white',
-    borderBottomWidth: 10,
-    backgroundColor: 'navy'
-  },
-  secondaryTitle: {
       fontSize: 28,
-      textAlign: 'left',
+      textAlign: 'center',
       margin: 0,
       color: '#000',
       fontWeight: 'bold',
-      marginLeft: 50
   },
   paragraph: {
     textAlign: 'center',
     color: '#000000',
     marginBottom: 5,
-    fontSize: 16,
-    padding: 10
+    fontSize: 18,
   },
   secondaryParagraph: {
       color: 'gray',
-      fontSize: 14,
-      marginLeft: 80
+      fontSize: 18
+    },
+  temp: {
+      fontSize: 18,
+      color: 'white'
     },
   info: {
     padding: 5,
-    backgroundColor: 'navy',
-    margin: 30
+    backgroundColor: 'navy'
   },
   infoParagraph: {
       textAlign: 'left',
@@ -116,5 +111,10 @@ const styles = StyleSheet.create({
     },
   buttonContainer: {
     margin: 20
+  },
+  tempInfo: {
+    width: 150,
+    padding: 10,
+    margin: 10
   }
 });

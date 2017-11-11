@@ -176,38 +176,12 @@ const styles = StyleSheet.create({
     borderBottomWidth: 10,
     backgroundColor: 'navy'
   },
-  secondaryTitle: {
-      fontSize: 28,
-      textAlign: 'left',
-      margin: 0,
-      color: '#000',
-      fontWeight: 'bold',
-      marginLeft: 50
-  },
   paragraph: {
     textAlign: 'center',
     color: '#000000',
     marginBottom: 5,
-    fontSize: 16,
+    fontSize: 18,
     padding: 10
   },
-  secondaryParagraph: {
-      color: 'gray',
-      fontSize: 14,
-      marginLeft: 80
-    },
-  info: {
-    padding: 5,
-    backgroundColor: 'navy',
-    margin: 30
-  },
-  infoParagraph: {
-      textAlign: 'left',
-      color: '#FFFFFF',
-      marginBottom: 5,
-      fontSize: 16
-    },
-  buttonContainer: {
-    margin: 20
-  }
+
 });
