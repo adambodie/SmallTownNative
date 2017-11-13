@@ -12,7 +12,8 @@ import {
 } from 'react-native';
 
 import axios from 'axios';
-import Place from './components/Place.js'
+import LinearGradient from 'react-native-linear-gradient';
+import Place from './components/Place.js';
 
 export default class App extends Component<{}> {
 
@@ -26,9 +27,11 @@ export default class App extends Component<{}> {
   render() {
     return (
       <ScrollView style={styles.container}>
+    <LinearGradient colors={['navy', 'lightblue']} style={styles.linearGradient}>
         <Text style={styles.title}>
           Great Small Towns to Visit
         </Text>
+    </LinearGradient>
         <Text style={styles.paragraph}>
         by &lt;name&gt;Adam Bodie&lt;/name&gt;
         </Text>
@@ -169,12 +172,8 @@ const styles = StyleSheet.create({
     fontSize: 32,
     textAlign: 'center',
     fontFamily: 'anton-regular',
-    padding: 20,
     margin: 0,
     color: '#000',
-    borderBottomColor: 'white',
-    borderBottomWidth: 10,
-    backgroundColor: 'navy'
   },
   paragraph: {
     textAlign: 'center',
@@ -183,5 +182,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     padding: 10
   },
-
+  linearGradient: {
+    flex: 1,
+    padding: 15,
+    borderBottomColor: 'white',
+    borderBottomWidth: 10,
+  },
 });
